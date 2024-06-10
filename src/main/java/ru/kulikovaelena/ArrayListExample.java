@@ -13,7 +13,7 @@ public class ArrayListExample {
     }
 
 
-    public void printArrayList() {
+    public void print() {
         if (arrayList.isEmpty()) {
             System.out.println("Элементы в коллекции отсутствуют");
             return;

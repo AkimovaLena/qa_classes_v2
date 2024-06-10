@@ -1,48 +1,48 @@
 package ru.kulikovaelena;
 
-import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Map;
 
-public class SetMapExample {
+public class HashSetExample {
 
-    private HashMap<String, String> hashMap;
+    private HashSet<String> hashSet;
 
-    public SetMapExample() {
-        this.hashMap = new HashMap<String, String>();
+    public HashSetExample() {
+        this.hashSet = new HashSet<String>();
     }
 
 
-    public void printArrayList() {
-        if (hashMap.isEmpty()) {
+    public void print() {
+        if (hashSet.isEmpty()) {
             System.out.println("Элементы в коллекции отсутствуют");
             return;
         }
-        System.out.println("Элементы коллекции: ");
-        Iterator<Map.Entry<String, String>> itr = hashMap.entrySet().iterator();
-        while (itr.hasNext())
-            System.out.println(itr.next());
+        System.out.print("Элементы коллекции: ");
+        Iterator<String> i = hashSet.iterator();
+        while (i.hasNext())
+            System.out.print(i.next()+" ");
+        System.out.println();
     }
 
-    public void addElement(String key, String value) {
-        hashMap.put(key, value);
-        System.out.println("Добавлен элемент " + value + "ключом " + key);
+    public void addElement( String value) {
+        hashSet.add(value);
+        System.out.println("Добавлен элемент " + value);
 
     }
 
-    public void removeElement(String key) {
-        if (hashMap.containsKey(key)) {
-            System.out.println("Был удален элемент " + hashMap.get(key) + " с ключом " + key);
-            hashMap.remove(key);
+    public void removeElement(String value) {
+        if (hashSet.contains(value)) {
+            System.out.println("Был удален элемент " + value);
+            hashSet.remove(value);
         } else
-            System.out.println("Элеменнт с данным ключом коллекции отсутствует");
+            System.out.println("Элеменнт в коллекции отсутствует");
     }
 
 
-    public void searchElement(String key) {
-        if (hashMap.containsKey(key)) {
-            System.out.println("Был найден элемент " + hashMap.get(key) + " с ключом " + key);
-        } else
-            System.out.println("Элеменнт с данным ключом коллекции отсутствует");
+    public void searchElement(String value) {
+        boolean found = hashSet.contains(value);
+        if (found) {
+            System.out.println("Элемент "+ value+" в коллекции  найден");
+        }
     }
 }

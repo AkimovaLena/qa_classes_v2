@@ -1,8 +1,6 @@
 package ru.kulikovaelena;
 
 import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class ArrayDequeExample {
@@ -14,7 +12,7 @@ public class ArrayDequeExample {
     }
 
 
-    public void printArrayList() {
+    public void print() {
         if (arrayDeque.isEmpty()) {
             System.out.println("Элементы в коллекции отсутствуют");
             return;

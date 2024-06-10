@@ -1,55 +1,46 @@
 package ru.kulikovaelena;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class HashMapExample {
 
-    private HashMap<String> hashMap ;
+    private HashMap<String, String> hashMap;
 
     public HashMapExample() {
-        this.arrayList = new HashMap<String>();
+        this.hashMap = new HashMap<String, String>();
     }
 
 
-    public void printArrayList() {
-        if (arrayList.isEmpty()) {
+    public void print() {
+        if (hashMap.isEmpty()) {
             System.out.println("Элементы в коллекции отсутствуют");
             return;
         }
-        System.out.print("Элементы коллекции: ");
-        for (String s : arrayList) {
-            System.out.print(s + ' ');
-        }
-        System.out.println();
+        System.out.println("Элементы коллекции: ");
+        Iterator<Map.Entry<String, String>> itr = hashMap.entrySet().iterator();
+        while (itr.hasNext())
+            System.out.println(itr.next());
     }
 
-    public void addElement(String value) {
-        arrayList.add(value);
-        System.out.println("Добавлен элемент " + value);
-
-    }
-
-    public void removeElement(String value) {
-        for (int i = 0; i < arrayList.size(); i++) {
-            if (Objects.equals(arrayList.get(i), value)) {
-                arrayList.remove(i);
-                System.out.println("Был удален элемент с индексом " + i);
-                return;
-            }
-        }
+    public void addElement(String key, String value) {
+        hashMap.put(key, value);
+        System.out.println("Добавлен элемент " + value + "ключом " + key);
 
     }
 
-    public void searchElement(String value) {
-        for (int i = 0; i < arrayList.size(); i++) {
-            if (Objects.equals(arrayList.get(i), value)) {
-                arrayList.remove(i);
-                System.out.println("Был найден элемент " + value + " с индексом " + i);
-                return;
-            }
-        }
+    public void removeElement(String key) {
+        if (hashMap.containsKey(key)) {
+            System.out.println("Был удален элемент " + hashMap.get(key) + " с ключом " + key);
+            hashMap.remove(key);
+        } else
+            System.out.println("Элеменнт с данным ключом коллекции отсутствует");
+    }
 
+
+    public void searchElement(String key) {
+        if (hashMap.containsKey(key)) {
+            System.out.println("Был найден элемент " + hashMap.get(key) + " с ключом " + key);
+        } else
+            System.out.println("Элеменнт с данным ключом коллекции отсутствует");
     }
 }
